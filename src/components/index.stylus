@@ -1,0 +1,539 @@
+border-radius(n)
+  -webkit-border-radius n
+  -moz-border-radius n
+  border-radius n
+mainColor = #1a1a20
+toolColor = #ebebf0
+curBgColor = #ebebf0
+curColor = #ac975e
+bgColor = #d9d9d9
+
+body
+  -moz-user-select none /*火狐*/
+  -webkit-user-select none /*webkit浏览器*/
+  -ms-user-select none /*IE10*/
+  user-select none
+  font-family fangzhengheitijianti
+.main
+    position relative
+    bottom 0
+    left 0
+    right 0
+    top 0
+    height calc( 100% - 64px)
+    min-height 550px
+  #nav
+    position absolute
+    left 0
+    top 0
+    bottom 0
+    width 70px
+    background mainColor
+    &::after
+      position absolute
+      right 0
+      top 0
+      width 5px
+      height 5px
+      border-radius(50%)
+      background mainColor
+    ul
+      margin-top 10px
+      li
+        -webkit-transition all ease-in-out .2s
+        -moz-transition all ease-in-out .2s
+        -ms-transition all ease-in-out .2s
+        -o-transition all ease-in-out .2s
+        transition all ease-in-out .2
+        &:hover
+          background curBgColor
+          span
+            color curColor
+        &.cur
+          background curBgColor
+          span
+            color curColor
+        span
+          display block
+          padding 20px 0
+          text-align center
+          color #fff
+          cursor pointer
+  #toolBar
+    position absolute
+    left 70px
+    top 0
+    bottom 0
+    width 282px
+    background toolColor
+    box-shadow 1px 0px 3px rgba(0, 0, 0, 0.03)
+    .toolbar-title
+      display block
+      margin 20px 18px 20px 4px
+      text-align center
+      text-shadow 1px 0 0 #000
+      color #000
+      line-height: 20px
+      letter-spacing 2px
+      text-transform uppercase
+      white-space nowrap
+      text-overflow ellipsis
+      overflow hidden
+    .filter
+      margin 20px
+      padding-left 4px
+      overflow hidden
+      width 248px
+      .title-drop
+        margin 6px 18px 0 4px
+        padding 11px 20px
+        line-height 20px
+        color #000
+        background #f7f7fa
+        overflow hidden
+        cursor pointer
+        box-shadow 0 0 0 1px #e5e5e5 inset
+        -webkit-box-shadow 0 0 0 1px #e5e5e5 inset
+        -moz-box-shadow 0 0 0 1px #e5e5e5 inset
+        -webkit-transition all .2s
+        -moz-transition all .2s
+        transition all .2s
+        i
+          float right
+          color #999
+          -webkit-transition all .2s
+          -moz-transition all .2s
+          transition all .2s
+        &:hover
+          color #1a1a20
+          background #fff
+      .title-drop.current
+        color #fff
+        background #44444a
+        box-shadow 0 0 0 1px rgba(200, 200, 200, 0) inset
+        -webkit-box-shadow 0 0 0 1px rgba(200, 200, 200, 0) inset
+        -moz-box-shadow 0 0 0 1px rgba(200, 200, 200, 0) inset
+        i
+          transform rotate(180deg)
+          -ms-transform  rotate(180deg)   /* IE 9 */
+          -moz-transform rotate(180deg)  /* Firefox */
+          -webkit-transform rotate(180deg) /* Safari 和 Chrome */
+          -o-transform rotate(180deg)  /* Opera */
+    .tool2 h2,h4,h5
+        display block
+        text-align center
+        padding 15px 10px
+        cursor pointer
+      h2
+        font-size 24px
+        font-weight bolder
+      h4
+        font-size 18px
+        font-weight bold
+      h5
+        font-size 14px
+      .sticker-group
+        margin 0px 18px 15px 4px
+        padding 6px
+        background-color rgb(93, 101, 115)
+        overflow hidden
+        display none
+        >div
+          float left
+          cursor pointer
+          width 45px
+          height 45px
+          padding 10px
+          margin 3px
+          -webkit-transition all .2s
+          -moz-transition all .2s
+          transition all .2s
+          &:hover
+            background rgba(220, 220, 220, 0.4)
+          >div
+            width 45px
+            height 45px
+            display table-cell
+            vertical-align middle
+            text-align center
+            img
+              width auto
+              height auto
+              max-width 100%
+              max-height 100%
+              min-height 1px
+              vertical-align middle
+  .canvasWrapper
+    position absolute
+    height 100%
+    top 0
+    bottom 0
+    left 352px
+    // right 124px
+    right 0
+    overflow auto
+    background bgColor
+    &::-webkit-scrollbar /*滚动条整体样式*/
+      width 10px     /*高宽分别对应横竖滚动条的尺寸*/
+      height 1px
+    &::-webkit-scrollbar-thumb /*滚动条里面小方块*/
+      border-radius 10px
+      -webkit-box-shadow inset 0 0 5px rgba(0,0,0,0.2)
+      background #535353
+    &::-webkit-scrollbar-track /*滚动条里面轨道*/
+      -webkit-box-shadow inset 0 0 5px rgba(0,0,0,0.2)
+      border-radius 10px
+      background #EDEDED
+    .editorPanel
+      position absolute
+      display block
+      top 0
+      left 0
+      right 0
+      height 22px
+      padding 7px 0
+      background #fff
+      box-shadow 0 0 3px rgba(0, 0, 0, 0.1)
+      -webkit-box-shadow 0 0 3px rgba(0, 0, 0, 0.1)
+      -moz-box-shadow 0 0 3px rgba(0, 0, 0, 0.1)
+      #background
+        .bgText
+          float left
+          color #a0a0a0
+          padding-left 18px
+          padding-right 18px
+          line-height 12px
+          border-right 1px solid rgba(0, 0, 0, 0.05)
+          margin-top 6px
+        .bgColor
+          float left
+          margin-left 15px
+          width 22px
+          height 22px
+          padding 0px
+          cursor pointer
+          border-radius 4px
+          -moz-border-radius 4px
+          -webkit-border-radius 4px
+          box-shadow 0 0 0 2px rgba(0, 0, 0, 0.1)
+          -webkit-box-shadow 0 0 0 2px rgba(0, 0, 0, 0.1)
+          -moz-box-shadow 0 0 0 2px rgba(0, 0, 0, 0.1)
+          i
+            display block
+            width 22px
+            height 22px
+            border-radius 3px
+            -moz-border-radius 3px
+            -webkit-border-radius 3px
+            box-shadow 0px 0px 1px rgba(0, 0, 0, 0.3) inset
+            -webkit-box-shadow 0px 0px 1px rgba(0, 0, 0, 0.3) inset
+            -moz-box-shadow 0px 0px 1px rgba(0, 0, 0, 0.3) inset
+        .bgOpacity
+          float left
+          width 20px
+          height 20px
+          padding 1px
+          margin-left 15px
+          cursor pointer
+          i
+            display block
+            width 20px
+            height 20px
+            background url(../../static/img/opacity.png) no-repeat
+          .bgTip
+            &.hover
+              display block
+            /*i
+              background url(../../static/img/opacity1.png) no-repeat
+              border 1px solid #ac9753
+              border-radius 3px
+              -webkit-border-radius 3px
+              -moz-border-radius 3px */
+          .bgTip
+            position absolute
+            display none
+            top 45px
+            font-size 12px
+            padding 0 10px
+            line-height 30px
+            color #646464
+            background rgba(255, 255, 255, 0.97)
+            border-radius 3px
+            -moz-border-radius 3px
+            -webkit-border-radius 3px
+            box-shadow 2px 2px 5px rgba(0, 0, 0, 0.3)
+            -webkit-box-shadow 2px 2px 5px rgba(0, 0, 0, 0.3)
+            -moz-box-shadow 2px 2px 5px rgba(0, 0, 0, 0.3)
+            &::before
+              content ''
+              display block
+              position absolute
+              top 0
+              left 12px
+              margin-top -14px
+              border 7px solid transparent
+              border-bottom-color rgba(255, 255, 255, 0.97)
+          .opacityPanel
+            position absolute
+            display none
+            top 46px
+            width 200px
+            height 65px
+            font-size 12px
+            letter-spacing 1px
+            color #646464
+            background rgba(255, 255, 255, 0.97)
+            border-radius 6px
+            -moz-border-radius 6px
+            -webkit-border-radius 6px
+            box-shadow 3px 3px 6px rgba(0, 0, 0, 0.3)
+            -webkit-box-shadow 3px 3px 6px rgba(0, 0, 0, 0.3)
+            -moz-box-shadow 3px 3px 6px rgba(0, 0, 0, 0.3)
+            .arrow
+              z-index 4
+              content ''
+              display block
+              position absolute
+              top 0
+              left 10px
+              margin-top -14px
+              border 7px solid transparent
+              border-bottom-color rgba(255, 255, 255, 0.97)
+            .opacityContent
+              padding 15px
+              margin 0
+              .opacityTitle
+                font-size 12px
+                line-height 12px
+                min-height 14px
+                .opacityTitleText
+                  float left
+                span
+                  float right
+              .opacityScale
+                position relative
+                margin-top 5px
+                height 16px
+                width 170px
+                cursor pointer
+                .scale
+                  background-repeat repeat-x
+                  background-position 0 100%
+                  background-color #E4E4E4
+                  // border-left 1px #83BBD9 solid
+                  height 3px
+                  position relative
+                  font-size 0px
+                  border-radius 3px
+                  top 10px
+                  div
+                    background-repeat: repeat-x;
+                    background-color: #ac975e;
+                    width: 0px;
+                    position: absolute;
+                    height: 3px;
+                    width: 0;
+                    left: 0;
+                    bottom: 0;
+                  span
+                    width 10px
+                    height 10px
+                    position absolute
+                    left 0px
+                    top -4px
+                    cursor pointer
+                    background #707078
+                    box-shadow 0 0 0 2px rgba(255, 255, 255, 0.5)
+                    -moz-box-shadow 0 0 0 2px rgba(255, 255, 255, 0.5)
+                    -webkit-box-shadow 0 0 0 2px rgba(255, 255, 255, 0.5)
+                    border-radius 10px
+                    -webkit-border-radius 10px
+                    -moz-border-radius 10px
+    .canvasMain
+      background #fff
+      width 420px
+      height 675px
+      position relative
+      margin 0 auto
+      top 50%
+      transform translateY(-50%)
+      margin-top 20px
+      .canvas
+        position absolute
+        width 100%
+        height 100%
+        top 0
+        left 0
+        background #fff
+        >div
+          position absolute
+          border 1px dashed transparent
+          z-index 1
+          .coor
+            width 8px
+            height 8px
+            overflow hidden
+            position absolute
+            background-color #626262
+            display none
+            border-radius 100%
+            -moz-border-radius 100%
+            -webkit-border-radius 100%
+            z-index 200
+          .coor1
+            right -4px
+            bottom -4px
+            cursor se-resize
+          .coor2
+            right -4px
+            top -4px
+            cursor ne-resize
+          .coor3
+            left -4px
+            top -4px
+            cursor nw-resize
+          .coor4
+            left -4px
+            bottom -4px
+            cursor sw-resize
+          .rotateBtn
+            width 100%
+            height 40px
+            margin 0 auto
+            position absolute
+            top 100%
+            z-index 1
+            display none
+            &::after
+              content ""
+              display block
+              position absolute
+              left 50%
+              height 16px
+              width 1px
+              border-left 1px dashed #9b9b9b
+            &::before
+              content ""
+              position absolute
+              top 16px
+              left calc(50% - 10px)
+              width 20px
+              height 20px
+              border-radius 10px
+              box-shadow 0 1px 4px rgba(0,0,0,.24)
+              background url(../../static/img/rotate_new.svg?) 0 0
+              cursor pointer
+          img
+            position absolute
+      		  cursor move
+            z-index 1
+          .edit
+            width 250px
+            height auto
+            cursor move
+            line-height 23px
+      .toolWrapper
+        position absolute
+        background #fff
+        border-radius 4px
+        box-shadow 0 2px 8px rgba(0,0,0,.2)
+        width 148px
+        display none
+        z-index 1000
+        ul
+          list-style none
+          li
+            box-shadow inset 0 -1px 0 0 #ddd
+            line-height 30px
+            font-size 14px
+            color #626262
+            cursor pointer
+            padding-left 10px
+            &:last-child
+              box-shadow none
+      .ruleX
+        position absolute
+        left 0
+        top -18px
+        height 18px
+        width 100%
+        pointer-events auto
+        white-space nowrap
+        color #999
+        cursor default
+        overflow hidden
+        border 0
+        .ruleXlin
+          width .5rem
+          height 18px
+          display inline-block
+          vertical-align bottom
+          border-left #bbb solid 1px
+          box-sizing border-box
+          pointer-events none
+          .ruleXlinText
+            line-height 10px
+            margin-left 2px
+            font-size 12px
+        .short
+          height 6px
+      .ruleY
+        position absolute
+        left -18px
+        top 0
+        height 100%
+        width 18px
+        pointer-events auto
+        color #999
+        cursor default
+        overflow hidden
+        border 0
+        .ruleYlin
+          width 18px
+          height .5rem
+          float right
+          border-top #bbb solid 1px
+          pointer-events none
+          box-sizing border-box
+          .ruleYlinText
+            -webkit-writing-mode vertical-rl
+            vertical-align top
+            line-height 10px
+            margin-top 2px
+            font-size 12px
+  .zoomer
+    position absolute
+    height 120px
+    width 46px
+    bottom 100px
+    right 100px
+    text-align center
+    line-height 86px
+    background-color #fff
+    box-shadow 0 0 1px rgba(255,255,255,0.5)
+    font-size 12px
+    color #666
+    background-repeat: no-repeat
+    border-radius 3px
+    .zoomBig
+      width 100%
+      height 40px
+      line-height 40px
+      font-size 20px
+      cursor pointer
+    .zoomPercent
+      line-height 40px
+      width 100%
+      height 40px
+      vertical-align middle
+      span
+        display block
+        width 100%
+        vertical-align middle
+        text-align center
+    .zoomSmall
+      width 100%
+      height 40px
+      line-height 40px
+      font-size 20px
+      cursor pointer
